@@ -16,8 +16,8 @@ Func Main()
 	; Start the different programs
 
 	If ProcessExists("LINDA.exe") = 0 Then
-		FileChangeDir("C:\ProgramsPortable\FSUIPC7")
-		Run("C:\ProgramsPortable\FSUIPC7\LINDA.exe", "C:\ProgramsPortable\FSUIPC7")
+		FileChangeDir("C:\ProgramsPortable\FSUIPC7")  ; change the current working directory
+		Run("C:\ProgramsPortable\FSUIPC7\LINDA.exe", "C:\ProgramsPortable\FSUIPC7")  ; second parameter is the path to start the program in (working directory). LINDA had issues if I didn't manually call FileChangeDir() above though...
 		ProcessWait("LINDA.exe", 30)  ; wait for the process to start
 		Sleep(5000)  ; wait another x number of milliseconds
 	Else
